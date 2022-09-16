@@ -5,24 +5,42 @@ The following questionnaire seeks to understand your previous knowledge about so
 
 1. Do you know any programming languages? If you do, which ones?
 
+I have some limited experience with HTML, but otherwise, no.
+
 2. What is your primary computer operating system (OS)?
+
+I mainly do my school work on a Mac, but I have a windows PC at home.
 
 3. Do you own a smartphone, tablet, or mobile device? What is your favourite OS for mobile devices?
 
+I have an iPhone with an outdated version of iOS.  I have also used Android in the past, and loved the flexibility of the OS.
+
 4. Do you use any social networking services? If you do, which ones? Why?
+
+I use Instagram and Twitter mostly, as well as Facebook.  The reason I use these platforms is mostly because I'm familiar with them, and my peers use them.  I haven't gotten into using newer platforms (like TikTok) primarily because I feel that I waste enough time as it is.
 
 5. Expand the following acronyms and do research about their meaning. You may look them up if you don't know:
 
-    HTTP
-    REST    
-    API
+    HTTP >> Hypertext Transfer Protocol, for transferring files on the web.
+    REST >> Representational state transfer, this is an interface that enables users to use cloud services.
+    API >> Application Programming Interface, these softwares facilitate communication between programs.
 
 6. Do you play a musical instrument or sing? If so, how much experience do you have?
 
+I have 16 years of experience playing jazz and classical music on piano, as well as a few years of experience on guitar. 
+
 7. Can you read music notation? If so, how well?
+
+I'm actually pretty okay at sight-reading on both instruments!  
 
 8. How large is your personal music collection? Estimate the number of artists, albums, and songs. If instead you listen to music using streaming services, how many playlists, artists, albums, and songs do you have in your account?
 
+In terms of physical media, I have a decent collection of CDs, cassettes and vinyls that probably include over a hundred artists, a couple hundred albums and at least few thousand songs.  A good portion of my collection is inherited or given to me by family members, but I also like to buy new albums to support my favourite artists.  I also use streaming platforms, but I primarily just make yearly playlists (U0, U1, U2, etc).  These playlist typically include a couple hundred songs.
+
 9. How do you search and find new music? How do you think this affects the types of artists that you end up listening to?
 
+I often go through specific phases where I get really into a particular artist or genre.  Because of this, I like to check out Spotify's genre themed playlists.  As a result, I often end up hearing artists I may have otherwise never heard.  However, I like to keep in mind that this does give Spotify the power to decide who's music gets streamed, and ultimately which artists are relevant or "worth listening to."
+
 10. Name two musical artists that you like. What do you find interesting about their music that makes you like them?
+
+Two artists I like are quickly, quickly and Robert Grasper.  Quickly, quickly's music is really interesting in how he blends jazz idioms with indie and singer-songwriter aesthetics.  Furthermore, Robert Grasper is literally the jazz pianist I aspire to be, his performances on albums like Malibu by Anderson Paak and To Pimp a Butterfly by Kendrick Lamar are impeccable. 
