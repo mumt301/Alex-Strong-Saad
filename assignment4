@@ -1,0 +1,37 @@
+<html>
+<style>
+table, th, td {
+  border:2px solid blue;
+}
+</style>
+<body>
+
+<h2>Jazz Song</h2>
+
+<table style="width:100%">
+  <tr>
+    <td>Filename</td>
+    <td>Compression algorithm</td>
+    <td>Bit-rate</td>
+    <td>Original size</td>
+    <td>Compressed size</td>
+    <td>Compression ratio</td>
+    <td>Link to original audio</td>
+    <td>Link to compressed audio</td>
+    <td>Link to residual audio</td>
+  </tr>
+    <tr>
+    <td>Jazz song</td>
+    <td>MP3</td>
+    <td>96kbps</td>
+    <td>Original size</td>
+    <td>Compressed size</td>
+    <td>Compression ratio</td>
+    <td>Link to original audio</td>
+    <td>Link to compressed audio</td>
+    <td>Link to residual audio</td>
+  </tr>
+</table>
+
+</body>
+</html>
