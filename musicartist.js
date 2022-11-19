@@ -13,6 +13,7 @@ function generate_results() {
         // Exercise # 2 - Beginning
         let queryURL = `http://musicbrainz.org/ws/2/artist/?query=${artist}`;
         console.log(queryURL);
+        httpGet(queryURL, getMBID);
 
         // 1. Making the query (https://www.w3schools.com/js/js_ajax_http.asp - last two tables)
         let xmlHttp = new XMLHttpRequest(); // Create an XMLHttpRequest object
