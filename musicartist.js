@@ -48,7 +48,7 @@ function generate_results() {
                     let retrievedData = xhttp.responseXML;
                     console.log(retrievedData);
                     let albums=retrievedData.getElementsByTagName('release-group');
-                    let placeholder = document.getElementById('placeholder');
+                    let placeholder = document.getElementById('theresult');
                     let table = "<table><tr><th>Title</th><th>Date</th></tr>";
                     for (let row = 0; row < albums.length; row++){
                     let data = albums[row];
