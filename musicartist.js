@@ -7,7 +7,7 @@ function generate_results() {
         let artist = params.get("artist");
         console.log(artistName);
         // Filling-in the placeholder element (finished later - see step 3)
-        let placeholder = document.getElementById('theresult');
+        let placeholder = document.getElementById('placeholder');
         
         // Exercise # 2 - Beginning
         let queryURL = `http://musicbrainz.org/ws/2/artist/?query=${artist}`;
@@ -44,11 +44,11 @@ function generate_results() {
                 getAlbums(artistMBID)
 
 
-                function getAlbums(xhttp) {
-                    let retrievedData = xhttp.responseXML;
-                    console.log(retrievedData);
-                    let albums=retrievedData.getElementsByTagName('release-group');
-                    let placeholder = document.getElementById('theresult');
+             function getAlbums(xhttp) {
+                 let retrievedData = xhttp.responseXML;
+                console.log(retrievedData);
+                let albums=retrievedData.getElementsByTagName('release-group');
+                    let placeholder = document.getElementById('placeholder');
                     let table = "<table><tr><th>Title</th><th>Date</th></tr>";
                     for (let row = 0; row < albums.length; row++){
                     let data = albums[row];
