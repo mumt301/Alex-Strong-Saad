@@ -32,7 +32,7 @@ function getMBID(xhttp) {
     console.log(artistMBID);
     let queryURL = `https://musicbrainz.org/ws/2/release-group?artist=${artistMBID}`
     console.log(queryURL);
-    httpGet(queryURL,getAlbums);
+    httpGet(queryURL, getAlbums);
     getAlbums(artistMBID)
 }
 
