@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Musicbrainz API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    </style>
+    </head>
+<body>
+    <h1>Search for Artist information</h1>
+    <form>
+        <label for="n1">Artist:</label>
+        <input type="text" name="artist" id="n1">
+        <input type="submit">
+    </form>
+    <p id="theresult"></p>
+    <script type="text/Javascript" src="musicartist.js"></script>
+</body>
+
+</html>
