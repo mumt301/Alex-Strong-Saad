@@ -3,7 +3,7 @@ function generate_results() {
     if (params.has('artist')) {
         let artistName = params.get('artist');
         console.log(artistName);
-        let queryURL = `http://musicbrainz.org/ws/2/artist/?query=${artist}`;
+        let queryURL = `http://musicbrainz.org/ws/2/artist/?query=${artistName}`;
         console.log(queryURL);
         httpGet(queryURL, getMBID);
     }
