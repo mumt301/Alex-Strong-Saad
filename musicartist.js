@@ -8,7 +8,6 @@ function generate_results() {
         console.log(artistName);
         // Filling-in the placeholder element (finished later - see step 3)
         let placeholder = document.getElementById('theresult');
-        placeholder.innerHTML = `The artist you are searching for is: ${artist}`;
         
         // Exercise # 2 - Beginning
         let queryURL = `http://musicbrainz.org/ws/2/artist/?query=${artist}`;
