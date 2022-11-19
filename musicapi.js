@@ -9,7 +9,7 @@ function generate_results() {
     }
 }
 
-// making the query
+
 function httpGet(theURL, cbFunction) {
     let xmlHttp = new XMLHttpRequest(); 
     xmlHttp.open("GET", theURL); 
@@ -45,11 +45,11 @@ function getAlbums(xhttp) {
    let table = "<table><tr><th>Title</th><th>Date</th></tr>";
    for (let row = 0; row < albums.length; row++){
    let data = albums[row];
-   let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
-   console.log(AlbumNames);
-   let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
-   console.log(AlbumDates);
-   table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumDates + "</td><tr>"
+   let AlbumTitles = data.getElementsByTagName("title")[0].innerHTML;
+   console.log(AlbumTitles);
+   let AlbumRelease = data.getElementsByTagName("first-release-date")[0].innerHTML;
+   console.log(AlbumRelease);
+   table += "<tr><td>" + AlbumTitles + "</td>" + "<td>" + AlbumRelease + "</td><tr>"
    }
    table += "</table>" 
    placeholder.innerHTML = table;
