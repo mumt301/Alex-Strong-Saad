@@ -45,11 +45,11 @@ function getAlbums(xhttp) {
    let table = "<table><tr><th>Title</th><th>Date</th></tr>";
    for (let row = 0; row < albums.length; row++){
    let data = albums[row];
-   let AlbumTitles = data.getElementsByTagName("title")[0].innerHTML;
-   console.log(AlbumTitles);
-   let AlbumRelease = data.getElementsByTagName("first-release-date")[0].innerHTML;
-   console.log(AlbumRelease);
-   table += "<tr><td>" + AlbumTitles + "</td>" + "<td>" + AlbumRelease + "</td><tr>"
+   let AlbumName = data.getElementsByTagName("title")[0].innerHTML;
+   console.log(AlbumDate);
+   let AlbumDate = data.getElementsByTagName("first-release-date")[0].innerHTML;
+   console.log(AlbumName);
+   table += "<tr><td>" + AlbumName + "</td>" + "<td>" + AlbumDate + "</td><tr>"
    }
    table += "</table>" 
    placeholder.innerHTML = table;
