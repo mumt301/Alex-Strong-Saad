@@ -18,18 +18,18 @@ function httpGet(theURL, cbFunction) {
         if (this.readyState == 4 && this.status == 200) {
             cbFunction(this);
         }
-    }
+    };
 }
 
 function getMBID(xhttp) {
     let retrievedData = xhttp.responseXML;
     console.log(retrievedData);
-    let artistMBID = artistData.id;
-    console.log(artistMBID);
     let artistData = retrievedData.getElementsByTagName('artist')[0];
     console.log(artistData);
     let artistName = artistData.getElementsByTagName('name')[0].innerHTML;
     console.log(artistName);
+    let artistMBID = artistData.id;
+    console.log(artistMBID);
     let queryURL = "https://musicbrainz.org/ws/2/release-group?artist=${artistMBID}";
     console.log(queryURL);
     httpGet(queryURL,getAlbums);
@@ -45,11 +45,11 @@ function getAlbums(xhttp) {
    let table = "<table><tr><th>Title</th><th>Date</th></tr>";
    for (let row = 0; row < albums.length; row++){
    let data = albums[row];
-   let AlbumTitles = data.getElementsByTagName("title")[0].innerHTML;
-   console.log(AlbumTitles);
-   let AlbumRelease = data.getElementsByTagName("first-release-date")[0].innerHTML;
-   console.log(AlbumRelease);
-   table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumRelease + "</td><tr>"
+   let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
+   console.log(AlbumNames);
+   let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
+   console.log(AlbumDates);
+   table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumDates + "</td><tr>"
    }
    table += "</table>" 
    placeholder.innerHTML = table;
