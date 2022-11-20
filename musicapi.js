@@ -1,4 +1,4 @@
-function generate_results() {
+function function generate_results() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
         let artistName = params.get('artist');
@@ -20,7 +20,7 @@ function httpGet(theURL, cbFunction) {
         if (this.readyState == 4 && this.status == 200) {
             cbFunction(this);
         }
-    }
+    };
 }
 
 function getMBID(xhttp) {
@@ -35,7 +35,7 @@ function getMBID(xhttp) {
     let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
     let queryURL = mBaseURL + artistMBID;
     console.log(queryURL);
-    httpGet(queryURL, getAlbums);
+    httpGet(queryURL,getAlbums);
     getAlbums(artistMBID)
 }
 
@@ -57,4 +57,4 @@ function getAlbums(xhttp) {
    table += "</table>" 
    placeholder.innerHTML = table;
    }
- window.onload = generate_results();
+window.onload = queryArtist;
