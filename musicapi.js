@@ -1,4 +1,4 @@
-function queryArtist() {
+function generate_results() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
         let artistName = params.get('artist');
@@ -57,4 +57,4 @@ function getAlbums(xhttp) {
    table += "</table>" 
    placeholder.innerHTML = table;
    }
-window.onload = queryArtist;
+window.onload = generate_results;
