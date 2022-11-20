@@ -13,12 +13,13 @@
         <input type="submit">
     </form>
     <p id="placeholder"></p>
-    <script>function queryArtist() {
+    <script>function generate_results() {
         let params = (new URL(document.location)).searchParams;
         if (params.has('artist')) {
             let artistName = params.get('artist');
             console.log(artistName);
-            let queryURL = "https://musicbrainz.org/ws/2/artist?query=${artist}";
+            let mbBaseURL = "https://musicbrainz.org/ws/2/artist?query=";
+            let queryURL = mbBaseURL + artistName;
             console.log(queryURL);
             httpGet(queryURL, getMBID);
         }
@@ -33,7 +34,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 cbFunction(this);
             }
-        }
+        };
     }
     
     function getMBID(xhttp) {
@@ -45,7 +46,8 @@
         console.log(artistName);
         let artistMBID = artistData.id;
         console.log(artistMBID);
-        let queryURL = "https://musicbrainz.org/ws/2/release-group?artist=${artistMBID}";
+        let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
+        let queryURL = mBaseURL + artistMBID;
         console.log(queryURL);
         httpGet(queryURL,getAlbums);
         getAlbums(artistMBID)
@@ -69,6 +71,6 @@
        table += "</table>" 
        placeholder.innerHTML = table;
        }
-    window.onload = queryArtist;</script>
+    window.onload = generate_results;</script>
 </body>
 </html>
