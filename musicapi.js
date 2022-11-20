@@ -1,4 +1,4 @@
-function function generate_results() {
+function queryArtist() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
         let artistName = params.get('artist');
