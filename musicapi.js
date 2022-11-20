@@ -18,7 +18,7 @@ function httpGet(theURL, cbFunction) {
         if (this.readyState == 4 && this.status == 200) {
             cbFunction(this);
         }
-    };
+    }
 }
 
 function getMBID(xhttp) {
@@ -30,8 +30,7 @@ function getMBID(xhttp) {
     console.log(artistName);
     let artistMBID = artistData.id;
     console.log(artistMBID);
-    let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
-    let queryURL = mBaseURL + artistMBID;
+    let queryURL = "https://musicbrainz.org/ws/2/release-group?artist=${artistMBID}"
     console.log(queryURL);
     httpGet(queryURL,getAlbums);
     getAlbums(artistMBID)
