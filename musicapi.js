@@ -30,8 +30,7 @@ function getMBID(xhttp) {
     console.log(artistName);
     let artistMBID = artistData.id;
     console.log(artistMBID);
-    let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
-    let queryURL = mBaseURL + artistMBID;
+    let queryURL = "https://musicbrainz.org/ws/2/release-group?artist=${artistMID}"
     console.log(queryURL);
     httpGet(queryURL,getAlbums);
     getAlbums(artistMBID)
