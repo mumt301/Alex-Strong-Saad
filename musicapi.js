@@ -26,10 +26,10 @@ function getMBID(xhttp) {
     console.log(retrievedData);
     let artistData = retrievedData.getElementsByTagName('artist')[0];
     console.log(artistData);
-    let artistName = artistData.getElementsByTagName('name')[0].innerHTML;
-    console.log(artistName);
     let artistMBID = artistData.id;
     console.log(artistMBID);
+    let artistName = artistData.getElementsByTagName('name')[0].innerHTML;
+    console.log(artistName);
     let queryURL = "https://musicbrainz.org/ws/2/release-group?artist=${artistMBID}"
     console.log(queryURL);
     httpGet(queryURL,getAlbums);
@@ -45,10 +45,10 @@ function getAlbums(xhttp) {
    let table = "<table><tr><th>Title</th><th>Date</th></tr>";
    for (let row = 0; row < albums.length; row++){
    let data = albums[row];
-   let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
-   console.log(AlbumNames);
    let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
    console.log(AlbumDates);
+   let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
+   console.log(AlbumNames);
    table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumDates + "</td><tr>"
    }
    table += "</table>" 
