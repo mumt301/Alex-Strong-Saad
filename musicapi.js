@@ -1,4 +1,4 @@
-function generate_results() {
+function queryArtist() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
         let artistName = params.get('artist');
@@ -39,36 +39,22 @@ function getMBID(xhttp) {
     getAlbums(artistMBID)
 }
 
-function getAlbum(xhttp) {
-    var AlbumNames = [];
-    var AlbumDates = [];
-    let data = xhttp.responseXML;
-    console.log(data);
 
-    let release_list = data.getElementsByTagName("release-group-list")[0];
-    console.log(release_list);
-    let releaseGroups = release_list.getElementsByTagName("release-group");
-    let releaseCount = releaseGroups.length;
-    document.getElementById("albums").innerHTML = releaseCount + " results";
-
-    console.log(releaseCount)
-        for (let index = 0; index < releaseCount; index++) {
-    let album_Dt = release_list.getElementsByTagName("release-group")[index];
-    let albumName = album_Dt.getElementsByTagName('title')[0].innerHTML;
-    console.log(albumName);
-    AlbumNames[index] = albumName;
-    let albumDate = album_Dt.getElementsByTagName('first-release-date')[0].innerHTML
-    console.log(albumDate);
-    AlbumDates[index] = albumDate;
-    }
-    console.log(AlbumNames);
-    console.log(AlbumDates);
-
-    text = "<tr><th>Album</th><th>Release Date</th></tr>";
-        for (i = 0; i < AlbumNames.length; i++) {
-        text += "<tr><td> " + AlbumNames[i] + "</td>";
-        text += "<td> " + AlbumDates[i] + "</td></tr>";
-    }
-    let placeholder = document.getElementById('placeholder');
-    placeholder.innerHTML = text;
-window.onload = generate_results;
+function getAlbums(xhttp) {
+   let retrievedData = xhttp.responseXML;
+   console.log(retrievedData);
+   let albums=retrievedData.getElementsByTagName('release-group');
+   let placeholder = document.getElementById('placeholder');
+   let table = "<table><tr><th>Title</th><th>Date</th></tr>";
+   for (let row = 0; row < albums.length; row++){
+   let data = albums[row];
+   let AlbumNames = data.getElementsByTagName("title")[0].innerHTML;
+   console.log(AlbumNames);
+   let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
+   console.log(AlbumDates);
+   table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumDates + "</td><tr>"
+   }
+   table += "</table>" 
+   placeholder.innerHTML = table;
+   }
+window.onload = queryArtist;
