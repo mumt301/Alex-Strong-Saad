@@ -1,9 +1,11 @@
-function generate_results() {
+function queryArtist() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
         let artistName = params.get('artist');
         console.log(artistName);
-        let queryURL = "https://musicbrainz.org/ws/2/artist?query=${artistName}"
+        let mbBaseURL = "https://musicbrainz.org/ws/2/";
+        let mbResource = "artist?query=";
+        let queryURL = mbBaseURL + mbResource + artistName;
         console.log(queryURL);
         httpGet(queryURL, getMBID);
     }
@@ -18,7 +20,7 @@ function httpGet(theURL, cbFunction) {
         if (this.readyState == 4 && this.status == 200) {
             cbFunction(this);
         }
-    }
+    };
 }
 
 function getMBID(xhttp) {
@@ -30,7 +32,8 @@ function getMBID(xhttp) {
     console.log(artistName);
     let artistMBID = artistData.id;
     console.log(artistMBID);
-    let queryURL = "https://musicbrainz.org/ws/2/release-group?artist=${artistMBID}"
+    let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist="; 
+    let queryURL = mBaseURL + artistMBID;
     console.log(queryURL);
     httpGet(queryURL,getAlbums);
     getAlbums(artistMBID)
@@ -49,11 +52,9 @@ function getAlbums(xhttp) {
    console.log(AlbumNames);
    let AlbumDates = data.getElementsByTagName("first-release-date")[0].innerHTML;
    console.log(AlbumDates);
-  
-
    table += "<tr><td>" + AlbumNames + "</td>" + "<td>" + AlbumDates + "</td><tr>"
    }
    table += "</table>" 
    placeholder.innerHTML = table;
    }
-window.onload = generate_results;
+window.onload = queryArtist;
