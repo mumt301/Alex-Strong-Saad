@@ -1,8 +1,8 @@
 function generate_results() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
-        let artistName = params.get('artist');
-        console.log(artistName);
+        let artist = params.get('artist');
+        console.log(artist);
         let queryURL = 'https://musicbrainz.org/ws/2/artist?query=${artist}';
         console.log(queryURL);
         httpGet(queryURL, getMBID);
