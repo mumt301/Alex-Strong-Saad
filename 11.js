@@ -16,13 +16,17 @@ function thereminControl(e, oscillator, theremin) {
     let freqRange = maxFrequency - minFrequency;
     let thereminFreq = minFrequency + (x / theremin.clientWidth) * freqRange;
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
-    
 
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
     console.log("Volume: ", thereminVolume);
     oscillator.volume = thereminVolume;
-    
+
+    let frequency = document.getElementById("frequency");
+
+    frequency.innerHTML= thereminFreq + " Hz"
+}
+
 // Turn theremin off
 function thereminOff(oscillator) {
     oscillator.stop();
