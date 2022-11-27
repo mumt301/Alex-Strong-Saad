@@ -6,7 +6,7 @@ function thereminOn(oscillator) {
 }
 
 // Control the theremin
-function thereminControl(e, oscillator, theremin, noteFromFrequency) {
+function thereminControl(e, oscillator, theremin, note) {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log(x, y);
@@ -17,6 +17,9 @@ function thereminControl(e, oscillator, theremin, noteFromFrequency) {
     let thereminFreq = minFrequency + (x / theremin.clientWidth) * freqRange;
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
 
+    if (urlParams.has("oscillatorType"))
+    {oscillatorType=urlParams.get("oscillatorType");}
+
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
     console.log("Volume: ", thereminVolume);
@@ -26,7 +29,10 @@ function thereminControl(e, oscillator, theremin, noteFromFrequency) {
     frequency.innerHTML= (thereminFreq) + " Hz";
     let note = document.getElementById("note");
     note.innerHTML= noteFromFrequency(thereminFreq, true);
+
+    let 
 }
+
 
 // Turn theremin off
 function thereminOff(oscillator) {
