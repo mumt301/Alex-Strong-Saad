@@ -25,8 +25,8 @@ function thereminControl(e, oscillator, theremin) {
     let frequency = document.getElementById("frequency");
     let note = document.getElementById("note");
 
-    frequency.innerHTML= thereminFreq + " Hz"
-    note.innerHTML= noteFromFrequency(frequency)
+    frequency.innerHTML= thereminFreq + " Hz";
+    note.innerHTML= noteFromFrequency(frequency, true);
 }
 
 // Turn theremin off
