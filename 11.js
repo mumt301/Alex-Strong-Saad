@@ -6,7 +6,7 @@ function thereminOn(oscillator) {
 }
 
 // Control the theremin
-function thereminControl(e, oscillator, theremin) {
+function thereminControl(e, oscillator, theremin, note) {
     let x = e.offsetX;
     let y = e.offsetY;
     console.log(x, y);
@@ -26,7 +26,7 @@ function thereminControl(e, oscillator, theremin) {
     let note = document.getElementById("note");
 
     frequency.innerHTML= oscillator.frequency + " Hz";
-    note.innerHTML= noteFromFrequency(oscillator.frequency, true);
+    note.innerHTML= noteFromFrequency(oscillator.frequency);
 }
 
 // Turn theremin off
