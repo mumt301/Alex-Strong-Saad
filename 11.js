@@ -43,9 +43,6 @@ function runAfterLoadingPage() {
         }
     });
 
-    if (urlParams.has("oscillatorType"))
-    {oscillatorType=urlParams.get("oscillatorType");}
-
     // Get the theremin div from the html
     const theremin = document.getElementById("thereminZone");
 
