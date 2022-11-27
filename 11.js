@@ -23,7 +23,7 @@ function thereminControl(e, oscillator, theremin) {
     oscillator.volume = thereminVolume;
 
     let frequency = document.getElementById("frequency");
-    let note = document.getElementById("note");
+    let note = document.getElementById("notename");
 
     frequency.innerHTML= thereminFreq + " Hz"
     note.innerHTML= notename
