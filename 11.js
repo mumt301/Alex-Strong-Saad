@@ -18,7 +18,7 @@ function thereminControl(e, oscillator, theremin) {
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
 
     console.log("Frequency: ", thereminFreq);
-    oscillator.frequency = thereminFreq;3
+    oscillator.frequency = thereminFreq;
     console.log("Volume: ", thereminVolume);
     oscillator.volume = thereminVolume;
  
@@ -26,7 +26,7 @@ function thereminControl(e, oscillator, theremin) {
     let note = document.getElementById("note");
 
     frequency.innerHTML= thereminFreq + " Hz";
-    note.innerHTML= noteFromFrequency(thereminFreq, true);
+    note3.innerHTML= noteFromFrequency(thereminFreq, true);
 }
 
 // Turn theremin off
