@@ -17,9 +17,6 @@ function thereminControl(e, oscillator, theremin, note) {
     let thereminFreq = minFrequency + (x / theremin.clientWidth) * freqRange;
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
 
-    if (urlParams.has("oscillatorType"))
-    {oscillatorType=urlParams.get("oscillatorType");}
-
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
     console.log("Volume: ", thereminVolume);
@@ -29,8 +26,6 @@ function thereminControl(e, oscillator, theremin, note) {
     frequency.innerHTML= (thereminFreq) + " Hz";
     let note = document.getElementById("note");
     note.innerHTML= noteFromFrequency(thereminFreq, true);
-
-    let 
 }
 
 
