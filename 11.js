@@ -38,10 +38,13 @@ function runAfterLoadingPage() {
     const oscillator = new Pizzicato.Sound({
         source: 'wave',
         options: {
-            type: "sine",
+            type: "oscillatorType",
             frequency: 220
         }
     });
+
+    if (urlParams.has("oscillatorType"))
+    {oscillatorType=urlParams.get("oscillatorType");}
 
     // Get the theremin div from the html
     const theremin = document.getElementById("thereminZone");
