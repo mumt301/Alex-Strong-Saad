@@ -1,5 +1,8 @@
 "use strict";
 
+if (urlParams.has("oscillatorType"))
+    {oscillatorType=urlParams.get("oscillatorType");}
+    
 // Turn theremin on
 function thereminOn(oscillator) {
     oscillator.play();
