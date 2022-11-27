@@ -25,8 +25,8 @@ function thereminControl(e, oscillator, theremin) {
     let frequency = document.getElementById("frequency");
     let note = document.getElementById("note");
 
-    frequency.innerHTML=thereminFreq + " Hz";
-    note.innerHTML=noteFromFrequency(thereminFreq, true);
+    frequency.innerHTML= thereminFreq + " Hz";
+    note.innerHTML= noteFromFrequency(thereminFreq, true);
 }
 
 // Turn theremin off
@@ -61,19 +61,6 @@ function runAfterLoadingPage() {
     theremin.addEventListener("mouseleave", function () {
         thereminOff(oscillator);
     });
-}
-
-function noteFromFrequency(frequency, withOctave=false) {
-    // converts a frequency into its closest human-readable note name.
-    const midinumber = midiFromFrequency(frequency);
-    const pitchclass = midinumber % 12;
-    let octave = (midinumber - pitchclass) / 12;
-    let notename = notenames[pitchclass];
-    if (withOctave) {
-        octave--;
-        notename += octave;
-    }
-    return notename;
 }
 
 window.onload = runAfterLoadingPage;
