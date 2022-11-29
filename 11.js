@@ -1,6 +1,14 @@
 "use strict";
 
-let autotunebutton = 0;
+let autotunebutton=0;
+let reverbbutton=0;
+
+let reverb = new Pizzicato.Effects.Reverb({
+    time: 5,
+    decay: 5,
+    reverse: false,
+    mix: 0.0
+});
 
 // Turn theremin on
 function thereminOn(oscillator) {
@@ -19,11 +27,12 @@ function thereminControl(e, oscillator, theremin) {
     let thereminFreq = minFrequency + (x / theremin.clientWidth) * freqRange;
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
 
-
     if (autotunebutton=true) { thereminFreq = frequencyToMidi(thereminFreq);
-    thereminFreq = midiToFrequency(thereminFreq); }
+       thereminFreq = midiToFrequency(thereminFreq); }
+ 
+       // I have no idea why this code runs all the time, even when autotunebutton=false
 
-    if (reverbbutton=true) {oscillator.addEffect(reverb);}
+    if (reverbbutton=true) { reverb.mix = 0.7}
 
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
@@ -52,11 +61,13 @@ function runAfterLoadingPage() {
     });
 
     var reverb = new Pizzicato.Effects.Reverb({
-        time: 0.7,
-        decay: 0.7,
+        time: 5,
+        decay: 5,
         reverse: false,
         mix: 0.7
     });
+
+    oscillator.addEffect(reverb);
 
     // Get the theremin div from the html
     const theremin = document.getElementById("thereminZone");
@@ -75,7 +86,7 @@ function runAfterLoadingPage() {
     theremin.addEventListener("mouseleave", function () {
         thereminOff(oscillator);
     });
-
+    
     const oscillatorType = document.getElementById("oscillatorType");
 
     oscillatorType.addEventListener('change', function () {
@@ -90,17 +101,18 @@ function runAfterLoadingPage() {
         }); 
     });
 
-    autotunebutton = document.getElementById("autotunebutton");
+    const autotunebutton = document.getElementById("autotunebutton");
     autotunebutton.addEventListener('change', function () {
 
         console.log('hi', autotunebutton.checked);
-        }); 
+    }); 
 
-     reverbbutton = document.getElementById("reverbbutton");
-     reverbbutton.addEventListener('change', function () {
-    
-        console.log('hi', reverbbutton.checked);
+     const reverbbutton = document.getElementById("reverbbutton");
+    reverbbutton.addEventListener('change', function () {
+        
+        console.log('hello', reverbbutton.checked)
         }); 
+        
 }
 
 window.onload = runAfterLoadingPage;
