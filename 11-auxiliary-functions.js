@@ -32,14 +32,14 @@ function midiToFrequency(midinumber, concertA = 440) {
 
 function frequencyToMidi(frequency){
     // converts a frequency into its equivalent MIDI note number.
-    midinumber = (( 12 * Math.log(frequency / 220.0) / Math.log(2.0)) + 57.001 );
-    return midinumber
+    let midinumber = (( 12 * Math.log(frequency / 220.0) / Math.log(2.0)) + 57.001 );
+    return Math.round(midinumber)
 }
 
 function noteFromFrequency(frequency, withOctave=false) {
-    const midinumber = midiFromFrequency(frequency);
+    const midinumber = frequencyToMidi(frequency);
     const pitchclass = midinumber % 12;
-    let octave = (midinumber - pitchclass) / 12;
+    let octave = Math.round((midinumber - pitchclass) / 12);
     let notename = notenames[pitchclass];
     if (withOctave) {
         octave--;

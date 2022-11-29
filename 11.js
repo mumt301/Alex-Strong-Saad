@@ -1,5 +1,7 @@
 "use strict";
 
+let autotunebutton = 0;
+
 // Turn theremin on
 function thereminOn(oscillator) {
     oscillator.play();
@@ -17,15 +19,19 @@ function thereminControl(e, oscillator, theremin) {
     let thereminFreq = minFrequency + (x / theremin.clientWidth) * freqRange;
     let thereminVolume = 1.0 - (y / theremin.clientHeight);
 
+
+    if (autotunebutton=true) { thereminFreq = frequencyToMidi(thereminFreq);
+    thereminFreq = midiToFrequency(thereminFreq); }
+
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
     console.log("Volume: ", thereminVolume);
     oscillator.volume = thereminVolume;
  
     let frequency = document.getElementById("frequency");
-    frequency.innerHTML= thereminFreq + " Hz";
+    frequency.innerHTML = thereminFreq + " Hz";
     let note = document.getElementById("note");
-    note.innerHTML= noteFromFrequency(thereminFreq, true);
+    note.innerHTML = noteFromFrequency(thereminFreq, true);
 }
 
 // Turn theremin off
@@ -35,13 +41,22 @@ function thereminOff(oscillator) {
 
 function runAfterLoadingPage() {
     // Instantiate a sine wave with pizzicato.js
-    const oscillator = new Pizzicato.Sound({
+    let oscillator = new Pizzicato.Sound({
         source: 'wave',
         options: {
-            type: "oscillatorType",
+            type: "sawtooth",
             frequency: 220
         }
     });
+
+    var reverb = new Pizzicato.Effects.Reverb({
+        time: 0.7,
+        decay: 0.7,
+        reverse: false,
+        mix: 0.7
+    });
+
+    oscillator.addEffect(reverb);
 
     // Get the theremin div from the html
     const theremin = document.getElementById("thereminZone");
@@ -60,6 +75,26 @@ function runAfterLoadingPage() {
     theremin.addEventListener("mouseleave", function () {
         thereminOff(oscillator);
     });
+
+    const oscillatorType = document.getElementById("oscillatorType");
+
+    oscillatorType.addEventListener('change', function () {
+
+        console.log('hi', oscillatorType.value)
+        oscillator = new Pizzicato.Sound({
+            source: 'wave',
+            options: {
+                type: oscillatorType.value,
+                frequency: 220
+            }
+        }); 
+    });
+
+    autotunebutton = document.getElementById("autotunebutton");
+    autotunebutton.addEventListener('change', function () {
+
+        console.log('hi', autotunebutton.checked);
+        }); 
 }
 
 window.onload = runAfterLoadingPage;
