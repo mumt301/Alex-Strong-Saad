@@ -23,6 +23,8 @@ function thereminControl(e, oscillator, theremin) {
     if (autotunebutton=true) { thereminFreq = frequencyToMidi(thereminFreq);
     thereminFreq = midiToFrequency(thereminFreq); }
 
+    if (reverbbutton=true) {oscillator.addEffect(reverb);}
+
     console.log("Frequency: ", thereminFreq);
     oscillator.frequency = thereminFreq;
     console.log("Volume: ", thereminVolume);
@@ -55,8 +57,6 @@ function runAfterLoadingPage() {
         reverse: false,
         mix: 0.7
     });
-
-    oscillator.addEffect(reverb);
 
     // Get the theremin div from the html
     const theremin = document.getElementById("thereminZone");
@@ -94,6 +94,12 @@ function runAfterLoadingPage() {
     autotunebutton.addEventListener('change', function () {
 
         console.log('hi', autotunebutton.checked);
+        }); 
+
+     reverbbutton = document.getElementById("reverbbutton");
+     reverbbutton.addEventListener('change', function () {
+    
+        console.log('hi', reverbbutton.checked);
         }); 
 }
 
